@@ -1,0 +1,54 @@
+# .gitignore
+
+## ------------------------------------
+##  Codebase directories, where .gitkeep file is effective to keep
+##  directories tracked by git.
+##  Note: .gitkeep rule must be the last one in this section.
+## ------------------------------------
+
+## Include gitkeep files to keep folders tracked
+!**/.gitkeep
+
+
+## ------------------------------------
+##  Project build rubbish
+## ------------------------------------
+
+node_modules
+bower_components
+public/bundle.js
+dist
+.tmp
+.sass-cache
+reports
+
+
+## ------------------------------------
+##  Normally ignored rubbish
+## ------------------------------------
+
+## IDE files
+.idea/**
+*.sublime-project
+*.sublime-workspace
+
+## shared hosting files
+.ftpquota
+error_log
+**/error_log
+cgi-bin/**
+
+## temp files
+*~
+*.tmp
+*.swp
+*.swo
+.swp.*
+
+## OS generated files
+__MACOSX
+.DS_Store
+.Spotlight*
+.Trash*
+ehthumbs.db
+Thumbs.db
