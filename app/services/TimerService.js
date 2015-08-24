@@ -2,15 +2,12 @@ var angular = require('angular');
 var _ = require('lodash');
 
 @angular.decorators.service('TimerService')
-@angular.decorators.inject(['$rootScope'])
+@angular.decorators.inject(['$interval'])
 class TimerService {
 
-  constructor($rootScope) {
+  constructor($interval) {
     this.timers = [];
-    setInterval(() => {
-      _.each(this.timers, (timer) => timer());
-      $rootScope.$apply()
-    }, 1000);
+    $interval(() => _.each(this.timers, (timer) => timer()), 1000);
   }
 
   onTick(fn) {

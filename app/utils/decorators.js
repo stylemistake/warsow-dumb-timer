@@ -7,22 +7,21 @@ module.exports = function (app) {
   var register = require('./register.js')(app);
 
   decorators.directive = function (name) {
-    return function (target) {
+    return (target) => {
       register.directive(_.camelCase(name), target);
       return target;
     };
   };
 
   decorators.service = function (name) {
-    return function (target) {
+    return (target) => {
       register.service(name, target);
       return target;
     };
   };
 
   decorators.inject = function (deps) {
-    return function (target) {
-      // Assign dependencies to the class
+    return (target) => {
       target.$inject = deps;
       return target;
     };

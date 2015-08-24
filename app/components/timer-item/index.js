@@ -13,7 +13,6 @@ class TimerItem {
     this.scope = {
       duration: '&',
     };
-    this.currentScope = null;
     this.$timeout = $timeout;
     this.TimerService = TimerService;
   }
@@ -29,17 +28,12 @@ class TimerItem {
     if (!scope.time) {
       this.reset(scope);
     }
-    this.$timeout(() => {
-      scope.pulse = false;
-    }, 750);
+    this.$timeout(() => scope.pulse = false, 750);
   }
 
   link(scope, element, attrs) {
-    this.currentScope = scope;
     this.reset(scope);
-    this.TimerService.onTick(() => {
-      this.decrement(scope);
-    });
+    this.TimerService.onTick(() => this.decrement(scope));
   }
 
 }

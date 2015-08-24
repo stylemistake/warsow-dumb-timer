@@ -14,17 +14,18 @@ timer-item {
 
   &.yellow .time {
     background: #cc0;
-    color: #fff;
   }
 
   &.green .time {
     background: #4a0;
-    color: #fff;
   }
 
   &.magenta .time {
     background: #c0d;
-    color: #fff;
+  }
+
+  &.cyan .time {
+    background: #0cd;
   }
 
   .time {
