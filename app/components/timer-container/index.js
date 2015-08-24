@@ -9,10 +9,11 @@ class TimerContainer {
   constructor() {
     this.template = require('./component.html');
     this.restrict = 'E';
+    this.transclude = true;
   }
 
   link(scope, element, attrs) {
-    console.log('linked!');
+    // ...
   }
 
 }

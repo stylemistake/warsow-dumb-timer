@@ -1,0 +1,14 @@
+{
+  "name": "Item timer",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "density": 1.0
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "landscape"
+}

@@ -1,14 +1,30 @@
 <!doctype html>
 <html>
 <head>
+
 <meta charset="utf-8">
+<title>Item timer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Application manifest -->
+<link rel="manifest" href="manifest.json">
+
+<!-- Application metadata -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="256x256" href="icon.png">
+
 </head>
 <body ng-app="timer">
 
 <timer-container>
+  <timer-item class="red" duration="25"></timer-item>
+  <timer-item class="yellow" duration="25"></timer-item>
+  <timer-item class="green" duration="25"></timer-item>
+  <timer-item class="magenta" duration="20"></timer-item>
 </timer-container>
 
-<script src="/bundle.js"></script>
+<script src="bundle.js"></script>
 
 </body>
 </html>
