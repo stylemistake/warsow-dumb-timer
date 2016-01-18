@@ -18,7 +18,6 @@ Feel free to check out the source code.
 ## Installation
 
 ```
-npm install
 make
 ```
 

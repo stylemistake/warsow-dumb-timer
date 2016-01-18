@@ -1,16 +1,26 @@
-default: build
+# Makefile
 
-build:
-	node_modules/.bin/webpack -p
+## Add binaries in node_modules to PATH
+export PATH := $(PATH):node_modules/.bin
 
-serve:
-	node_modules/.bin/webpack-dev-server
+.DEFAULT_GOAL := build
 
-watch:
-	node_modules/.bin/webpack --watch
+node_modules: package.json
+	npm install
+	@touch node_modules
+
+build: node_modules
+	WEBPACK_ENV=production webpack --progress
+
+serve: node_modules
+	webpack-dev-server
+
+watch: node_modules
+	webpack --watch
 
 clean:
-	rm -f public/bundle.js
+	@rm -f public/bundle.js
 
 distclean: clean
-	rm -rf node_modules
+	@rm -rf node_modules
+	@rm -f npm-debug.log

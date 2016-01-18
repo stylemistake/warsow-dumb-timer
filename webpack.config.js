@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
   context: __dirname,
   entry: './app/app.js',
@@ -14,10 +16,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          stage: 1,
-        },
+        loader: 'babel?stage=1',
       },
       {
         test: /\.scss$/,
@@ -37,3 +36,17 @@ module.exports = {
     port: 3000,
   },
 };
+
+// Add optimization plugins when generating the final bundle
+if (process.env.WEBPACK_ENV === 'production') {
+  module.exports.plugins = [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        unsafe: true,
+        warnings: false,
+      },
+    }),
+  ];
+}
